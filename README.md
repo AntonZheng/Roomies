@@ -16,3 +16,6 @@ An iOS application created for INFO 449 A Wi 18: Mobile Development: IOS. Track 
 + As an administrator, I want to be able to visualize all chores and users in one screen so that I get an overview of what needs to be done/ by who
 + As a user, I want to be able to customize notifications so that its personal to my needs/tastes 
 + As a user, I want a leaderboard for chores so that the house can reward who has been doing the most chores
+
+## Contributors
+Anton Zheng, Govind Pillai, and Sarah Philips
