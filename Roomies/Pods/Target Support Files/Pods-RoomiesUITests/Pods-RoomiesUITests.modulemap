@@ -1,0 +1,6 @@
+framework module Pods_RoomiesUITests {
+  umbrella header "Pods-RoomiesUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
