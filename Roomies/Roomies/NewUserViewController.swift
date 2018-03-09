@@ -1,5 +1,5 @@
 //
-//  LandingTableViewController.swift
+//  NewUserViewController.swift
 //  Roomies
 //
 //  Created by Govind Pillai on 3/8/18.
@@ -8,26 +8,17 @@
 
 import UIKit
 
-class LandingTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    @IBOutlet weak var optionsTable: UITableView!
-    let optionsList = ["Notifications", "My Chores", "Chores", "Bills"]
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return optionsList.count
-    }
+class NewUserViewController: UIViewController {
+    public var group : String = ""
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = optionsList[indexPath.row]
-        return cell
+    func incomingVars(group: String) {
+        self.group = group
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        optionsTable.dataSource = self
-        optionsTable.delegate = self
-        optionsTable.tableFooterView = UIView()
     }
 
     override func didReceiveMemoryWarning() {
