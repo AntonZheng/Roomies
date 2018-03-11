@@ -442,7 +442,6 @@
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="addPushed:" destination="DBN-pn-hOx" eventType="touchUpInside" id="4Ba-1p-7U0"/>
                                     <action selector="addPushed:" destination="gbm-zJ-Vmq" eventType="touchUpInside" id="PZo-eS-9dN"/>
                                 </connections>
                             </button>
@@ -456,30 +455,25 @@
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Bill Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nuD-uR-HYQ">
-                                <rect key="frame" x="20" y="155" width="374" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="hyu-kB-9xt"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" textContentType="username"/>
-                            </textField>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fZ5-PQ-YSE">
+                                <rect key="frame" x="0.0" y="133" width="414" height="216"/>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="fZ5-PQ-YSE" firstAttribute="top" secondItem="ykt-Ur-gQh" secondAttribute="bottom" constant="15" id="1jq-ch-nWe"/>
                             <constraint firstItem="rg7-td-fha" firstAttribute="top" secondItem="zen-VU-7W6" secondAttribute="bottom" constant="8" symbolic="YES" id="1n2-0h-oaw"/>
                             <constraint firstItem="51q-eV-d1O" firstAttribute="bottom" secondItem="rg7-td-fha" secondAttribute="bottom" constant="311" id="3g1-K8-P5z"/>
-                            <constraint firstItem="51q-eV-d1O" firstAttribute="trailing" secondItem="nuD-uR-HYQ" secondAttribute="trailing" constant="20" id="C9F-Tx-m79"/>
                             <constraint firstItem="rg7-td-fha" firstAttribute="leading" secondItem="51q-eV-d1O" secondAttribute="leading" constant="127" id="ERv-vQ-YZ5"/>
                             <constraint firstItem="ug5-x9-kNI" firstAttribute="leading" secondItem="ykt-Ur-gQh" secondAttribute="leading" id="GOu-xm-2df"/>
+                            <constraint firstItem="fZ5-PQ-YSE" firstAttribute="trailing" secondItem="51q-eV-d1O" secondAttribute="trailing" id="J9j-Ur-LZm"/>
+                            <constraint firstItem="zen-VU-7W6" firstAttribute="top" secondItem="fZ5-PQ-YSE" secondAttribute="bottom" constant="8" id="LAG-ef-13o"/>
                             <constraint firstItem="51q-eV-d1O" firstAttribute="trailing" secondItem="lHE-6z-Sn3" secondAttribute="trailing" constant="172" id="MtG-yc-Tzr"/>
                             <constraint firstItem="GKi-E6-69x" firstAttribute="top" secondItem="ykt-Ur-gQh" secondAttribute="bottom" constant="8" symbolic="YES" id="OSz-OH-lny"/>
-                            <constraint firstItem="nuD-uR-HYQ" firstAttribute="leading" secondItem="51q-eV-d1O" secondAttribute="leading" constant="20" id="VAN-6L-rbQ"/>
                             <constraint firstItem="ykt-Ur-gQh" firstAttribute="trailing" secondItem="SvN-l4-LaA" secondAttribute="trailingMargin" id="WHN-Hk-NAx"/>
                             <constraint firstItem="ykt-Ur-gQh" firstAttribute="top" secondItem="ug5-x9-kNI" secondAttribute="bottom" constant="8" symbolic="YES" id="WKd-e9-xr5"/>
                             <constraint firstItem="ug5-x9-kNI" firstAttribute="top" secondItem="51q-eV-d1O" secondAttribute="top" constant="39" id="ZOs-96-iHT"/>
-                            <constraint firstItem="nuD-uR-HYQ" firstAttribute="top" secondItem="GKi-E6-69x" secondAttribute="bottom" constant="8" id="aCW-HF-rCK"/>
+                            <constraint firstItem="fZ5-PQ-YSE" firstAttribute="leading" secondItem="51q-eV-d1O" secondAttribute="leading" id="ebh-He-kFG"/>
                             <constraint firstItem="rg7-td-fha" firstAttribute="leading" secondItem="51q-eV-d1O" secondAttribute="leading" constant="127" id="gsn-Ma-ea0"/>
                             <constraint firstItem="zen-VU-7W6" firstAttribute="centerX" secondItem="rg7-td-fha" secondAttribute="centerX" id="hml-8Q-s7Q"/>
                             <constraint firstItem="lHE-6z-Sn3" firstAttribute="top" secondItem="51q-eV-d1O" secondAttribute="top" id="iBc-Rs-JLP"/>
