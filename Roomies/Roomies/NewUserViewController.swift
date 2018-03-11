@@ -7,9 +7,15 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class NewUserViewController: UIViewController {
     public var group : String = ""
+    @IBOutlet weak var userText: UITextField!
+    @IBOutlet weak var userLabel: UILabel!
+    var userCount = 1
+    var dbReference: DatabaseReference?
+    var dbHandle: DatabaseHandle?
     
     func incomingVars(group: String) {
         self.group = group
@@ -19,6 +25,7 @@ class NewUserViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        dbReference = Database.database().reference()
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,15 +33,32 @@ class NewUserViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    @IBAction func addPushed(_ sender: Any) {
+        if userText.text!.count > 0 {
+            dbReference?.child("groups").child(self.group).child("users").childByAutoId().setValue(["username": userText.text!])
+            userText.text = ""
+            userCount += 1
+            userLabel.text = "User \(self.userCount)"
+        }
+    }
+    
+    @IBAction func nextPushed(_ sender: Any) {
+        if userText.text!.count > 0 {
+            dbReference?.child("groups").child(self.group).child("users").childByAutoId().setValue(["username": userText.text!])
+        }
+        performSegue(withIdentifier: "BillSegue", sender: self)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        switch segue.identifier! {
+        case "BillSegue":
+            let destination = segue.destination as? BillViewController
+            destination?.incoming(group: self.group)
+        default:
+            NSLog("Unknown segue identifier -- " + segue.identifier!)
+        }
     }
-    */
 
 }

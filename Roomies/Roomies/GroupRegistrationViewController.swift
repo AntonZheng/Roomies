@@ -30,7 +30,6 @@ class GroupRegistrationViewController: UIViewController {
     @IBAction func submitPushed(_ sender: UIButton) {
         if groupText.text!.count > 0 {
             self.group = groupText.text!
-            dbReference?.child("groups").childByAutoId().setValue(self.group)
             performSegue(withIdentifier: "NewUserSegue", sender: self)
         }
     }
