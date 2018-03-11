@@ -69,14 +69,22 @@ class BillViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             dbReference?.child("groups").child(self.group).child("bills").childByAutoId().setValue(["billName": billText.text!, "billDate": self.date, "billTime": self.time])
         }
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    @IBAction func nextPushed(_ sender: Any) {
+        if billText.text!.count > 0 {
+            dbReference?.child("groups").child(self.group).child("bills").childByAutoId().setValue(["billName": billText.text!, "billDate": self.date, "billTime": self.time])
+        }
+        performSegue(withIdentifier: "TaskSegue", sender: self)
     }
-    */
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier! {
+        case "TaskSegue":
+            let destination = segue.destination as? TaskViewController
+            destination?.incoming(group: self.group)
+        default:
+            NSLog("Unknown segue identifier -- " + segue.identifier!)
+        }
+    }
 
 }

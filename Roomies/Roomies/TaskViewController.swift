@@ -10,6 +10,12 @@ import FirebaseDatabase
 import UIKit
 
 class TaskViewController: UIViewController {
+    
+    var group = ""
+    
+    func incoming(group: String) {
+        self.group = group
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
