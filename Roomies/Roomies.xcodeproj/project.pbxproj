@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		00DC5ED7035688372DF316AD /* Pods_RoomiesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2B3BEA9C2040739FC491778 /* Pods_RoomiesUITests.framework */; };
+		248C185E2055D1A400F4542A /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248C185D2055D1A400F4542A /* TaskViewController.swift */; };
 		2493D0D72048EC7A00222E61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2493D0D62048EC7A00222E61 /* AppDelegate.swift */; };
 		2493D0D92048EC7B00222E61 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2493D0D82048EC7A00222E61 /* ViewController.swift */; };
 		2493D0DC2048EC7B00222E61 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2493D0DA2048EC7B00222E61 /* Main.storyboard */; };
@@ -42,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		248C185D2055D1A400F4542A /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
 		2493D0D32048EC7A00222E61 /* Roomies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Roomies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2493D0D62048EC7A00222E61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2493D0D82048EC7A00222E61 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 				AC7C61782052424400635F7A /* GroupRegistrationViewController.swift */,
 				AC7C617A2052646500635F7A /* NewUserViewController.swift */,
 				AC4FADEA2054C701004B2309 /* BillViewController.swift */,
+				248C185D2055D1A400F4542A /* TaskViewController.swift */,
 			);
 			path = Roomies;
 			sourceTree = "<group>";
@@ -479,6 +482,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2493D0D92048EC7B00222E61 /* ViewController.swift in Sources */,
+				248C185E2055D1A400F4542A /* TaskViewController.swift in Sources */,
 				AC7C61772051FA9F00635F7A /* LandingTableViewController.swift in Sources */,
 				AC7C617B2052646500635F7A /* NewUserViewController.swift in Sources */,
 				2493D0D72048EC7A00222E61 /* AppDelegate.swift in Sources */,
