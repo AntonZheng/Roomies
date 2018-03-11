@@ -59,7 +59,9 @@ class BillViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         let date = sender.date
         let calendar = Calendar.current
         let comp = calendar.dateComponents([.hour, .minute], from: date)
-        time = String(describing: comp.hour) + ":" + String(describing: comp.minute)
+        let hour = comp.hour!
+        let minute = comp.minute!
+        time = String(describing: hour) + ":" + String(describing: minute)
     }
     
     @IBAction func addPushed(_ sender: Any) {
