@@ -325,7 +325,7 @@
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="gbm-zJ-Vmq" kind="show" id="dAY-e9-c9V"/>
+                                    <segue destination="gbm-zJ-Vmq" kind="show" identifier="TaskSegue" id="dAY-e9-c9V"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -491,9 +491,6 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="51q-eV-d1O"/>
                     </view>
-                    <connections>
-                        <outlet property="billText" destination="ykt-Ur-gQh" id="Vjb-XS-x7H"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lYR-lk-dyk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
