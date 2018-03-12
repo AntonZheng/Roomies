@@ -12,7 +12,7 @@ class LandingTableViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var optionsTable: UITableView!
     var group = ""
     var username = ""
-    let optionsList = ["Notifications", "Tasks", "Bills"]
+    let optionsList = ["Notifications", "Tasks"]
     
     func incoming(group: String, username: String) {
         self.group = group
