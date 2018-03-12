@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var groupName: UITextField!
     var dbReference: DatabaseReference?
     var groups: [String:[String]] = [:]
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -22,7 +22,7 @@ class ViewController: UIViewController {
         dbReference = Database.database().reference()
         
     }
-    
+
     @IBAction func signIn(_ sender: Any) {
         dbReference?.child("groups").observe(DataEventType.value, with: {(snapshot) in
             if snapshot.hasChild(self.groupName.text!){
