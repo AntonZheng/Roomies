@@ -10,7 +10,9 @@ import UIKit
 
 class LandingTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var optionsTable: UITableView!
+    var group = ""
     let optionsList = ["Notifications", "My Chores", "Chores", "Bills"]
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return optionsList.count
     }
@@ -19,6 +21,12 @@ class LandingTableViewController: UIViewController, UITableViewDelegate, UITable
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = optionsList[indexPath.row]
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if optionsList[indexPath.row] == "Notifications" {
+            performSegue(withIdentifier: "NSegue", sender: self)
+        }
     }
     
     override func viewDidLoad() {
@@ -35,15 +43,15 @@ class LandingTableViewController: UIViewController, UITableViewDelegate, UITable
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        switch segue.identifier! {
+        case "NSegue":
+            print("hello")
+        default:
+            NSLog("Unknown segue identifier -- " + segue.identifier!)
+        }
     }
-    */
 
 }

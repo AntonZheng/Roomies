@@ -43,7 +43,6 @@ class BillViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         } else {
             self.time = "\(String(hour)):\(String(minute))"
         }
-        
     }
     
     override func didReceiveMemoryWarning() {

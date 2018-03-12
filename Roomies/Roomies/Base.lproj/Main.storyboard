@@ -332,7 +332,7 @@
                         <viewLayoutGuide key="safeArea" id="Yjj-ik-pXH"/>
                     </view>
                     <connections>
-                        <outlet property="billLabel" destination="bfP-7Z-zl2" id="eNu-kq-Ho2"/>
+                        <outlet property="billLabel" destination="bfP-7Z-zl2" id="GNx-kP-0N4"/>
                         <outlet property="billText" destination="gsr-f0-AgD" id="jK9-EK-mF9"/>
                         <outlet property="datePicker" destination="tcj-Sh-xr2" id="wWb-KK-FE0"/>
                         <outlet property="timePicker" destination="mdF-Ra-0bL" id="J4W-kg-Nqv"/>
