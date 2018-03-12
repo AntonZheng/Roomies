@@ -10,7 +10,7 @@ import UIKit
 import FirebaseDatabase
 
 class BillViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
-    
+    @IBOutlet weak var billLabel: UILabel!
     @IBOutlet weak var datePicker: UIPickerView!
     @IBOutlet weak var timePicker: UIDatePicker!
     var dates : [Int] = []
@@ -19,6 +19,7 @@ class BillViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     @IBOutlet weak var billText: UITextField!
     var date = ""
     var time = ""
+    var billCount = 1
     
     func incoming(group: String) {
         self.group = group
@@ -31,8 +32,20 @@ class BillViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         // Do any additional setup after loading the view.
         dbReference = Database.database().reference()
         dates = Array(1...31)
+        self.date = "1"
+        let date = Date()
+        let calendar = Calendar.current
+        let comp = calendar.dateComponents([.hour, .minute], from: date)
+        let hour = comp.hour!
+        let minute = comp.minute!
+        if minute < 10 {
+            self.time = "\(String(hour)):0\(String(minute))"
+        } else {
+            self.time = "\(String(hour)):\(String(minute))"
+        }
+        
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -49,7 +62,7 @@ class BillViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return String(dates[row])
     }
-
+    
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         self.date = String(dates[row])
     }
@@ -67,6 +80,9 @@ class BillViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     @IBAction func addPushed(_ sender: Any) {
         if billText.text!.count > 0 {
             dbReference?.child("groups").child(self.group).child("bills").childByAutoId().setValue(["billName": billText.text!, "billDate": self.date, "billTime": self.time])
+            billCount += 1
+            billText.text = ""
+            billLabel.text = "Bill \(billCount)"
         }
     }
     
@@ -86,5 +102,5 @@ class BillViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             NSLog("Unknown segue identifier -- " + segue.identifier!)
         }
     }
-
+    
 }
