@@ -21,6 +21,7 @@
 		644036DF2E8F6A31874FAE3B /* Pods_Roomies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4FE0BB03891C855F4686ECC /* Pods_Roomies.framework */; };
 		AC4FADEB2054C701004B2309 /* BillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4FADEA2054C701004B2309 /* BillViewController.swift */; };
 		AC4FADEF20566E93004B2309 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4FADEE20566E93004B2309 /* NotificationViewController.swift */; };
+		AC4FADF120572F53004B2309 /* TaskTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4FADF020572F53004B2309 /* TaskTableViewController.swift */; };
 		AC7C61772051FA9F00635F7A /* LandingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7C61762051FA9F00635F7A /* LandingTableViewController.swift */; };
 		AC7C61792052424400635F7A /* GroupRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7C61782052424400635F7A /* GroupRegistrationViewController.swift */; };
 		AC7C617B2052646500635F7A /* NewUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7C617A2052646500635F7A /* NewUserViewController.swift */; };
@@ -66,6 +67,7 @@
 		6DA1757068E6EDAAE3E2AC66 /* Pods-RoomiesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoomiesTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RoomiesTests/Pods-RoomiesTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AC4FADEA2054C701004B2309 /* BillViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillViewController.swift; sourceTree = "<group>"; };
 		AC4FADEE20566E93004B2309 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
+		AC4FADF020572F53004B2309 /* TaskTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewController.swift; sourceTree = "<group>"; };
 		AC7C61762051FA9F00635F7A /* LandingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingTableViewController.swift; sourceTree = "<group>"; };
 		AC7C61782052424400635F7A /* GroupRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupRegistrationViewController.swift; sourceTree = "<group>"; };
 		AC7C617A2052646500635F7A /* NewUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserViewController.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				AC4FADEA2054C701004B2309 /* BillViewController.swift */,
 				248C185D2055D1A400F4542A /* TaskViewController.swift */,
 				AC4FADEE20566E93004B2309 /* NotificationViewController.swift */,
+				AC4FADF020572F53004B2309 /* TaskTableViewController.swift */,
 			);
 			path = Roomies;
 			sourceTree = "<group>";
@@ -490,6 +493,7 @@
 				AC7C61772051FA9F00635F7A /* LandingTableViewController.swift in Sources */,
 				AC7C617B2052646500635F7A /* NewUserViewController.swift in Sources */,
 				2493D0D72048EC7A00222E61 /* AppDelegate.swift in Sources */,
+				AC4FADF120572F53004B2309 /* TaskTableViewController.swift in Sources */,
 				AC7C61792052424400635F7A /* GroupRegistrationViewController.swift in Sources */,
 				AC4FADEB2054C701004B2309 /* BillViewController.swift in Sources */,
 			);

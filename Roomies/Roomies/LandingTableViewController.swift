@@ -12,7 +12,7 @@ class LandingTableViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var optionsTable: UITableView!
     var group = ""
     var username = ""
-    let optionsList = ["Notifications", "Chores", "Bills"]
+    let optionsList = ["Notifications", "Tasks", "Bills"]
     
     func incoming(group: String, username: String) {
         self.group = group
@@ -32,6 +32,8 @@ class LandingTableViewController: UIViewController, UITableViewDelegate, UITable
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if optionsList[indexPath.row] == "Notifications" {
             performSegue(withIdentifier: "NSegue", sender: self)
+        } else if optionsList[indexPath.row] == "Tasks" {
+            performSegue(withIdentifier: "Tasks", sender: self)
         }
     }
     
@@ -55,6 +57,9 @@ class LandingTableViewController: UIViewController, UITableViewDelegate, UITable
         switch segue.identifier! {
         case "NSegue":
             let destination = segue.destination as? NotificationViewController
+            destination?.incoming(group: self.group, roomie: self.username)
+        case "Tasks":
+            let destination = segue.destination as? TaskTableViewController
             destination?.incoming(group: self.group, roomie: self.username)
         case "SignOut":
             break
