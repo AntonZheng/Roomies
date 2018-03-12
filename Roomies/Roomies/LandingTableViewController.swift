@@ -11,7 +11,13 @@ import UIKit
 class LandingTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var optionsTable: UITableView!
     var group = ""
+    var username = ""
     let optionsList = ["Notifications", "Chores", "Bills"]
+    
+    func incoming(group: String, username: String) {
+        self.group = group
+        self.username = username
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return optionsList.count

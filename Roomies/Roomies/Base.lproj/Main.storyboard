@@ -55,9 +55,6 @@
                                 <state key="normal" title="Sign In">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
-                                <connections>
-                                    <segue destination="04f-Yi-J5H" kind="show" id="a5B-OY-3O2"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -79,6 +76,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="groupName" destination="5e7-5T-8JR" id="MTS-bf-4TA"/>
+                        <outlet property="userName" destination="24K-Xa-hMj" id="Fcr-8y-dCN"/>
+                        <segue destination="04f-Yi-J5H" kind="show" identifier="showLanding" id="zc0-PU-P7M"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -319,8 +321,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="v0q-ZV-dyB">
-                                <rect key="frame" x="0.0" y="55" width="414" height="681"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="v0q-ZV-dyB">
+                                <rect key="frame" x="0.0" y="65" width="414" height="671"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" textLabel="HYa-jQ-wGs" style="IBUITableViewCellStyleDefault" id="A0q-Mr-VFs">
@@ -342,14 +345,15 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ROOMIES" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xog-6O-zgG">
+                                <rect key="frame" x="115" y="20" width="184.66666666666663" height="36.666666666666657"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="v0q-ZV-dyB" firstAttribute="top" secondItem="3pB-oY-iFK" secondAttribute="top" constant="35" id="64n-db-VIs"/>
-                            <constraint firstItem="v0q-ZV-dyB" firstAttribute="bottom" secondItem="3pB-oY-iFK" secondAttribute="bottom" id="Uxe-gR-U89"/>
-                            <constraint firstItem="v0q-ZV-dyB" firstAttribute="trailing" secondItem="3pB-oY-iFK" secondAttribute="trailing" id="X1f-fh-wi7"/>
-                            <constraint firstItem="v0q-ZV-dyB" firstAttribute="leading" secondItem="3pB-oY-iFK" secondAttribute="leading" id="jle-5m-4Ex"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="3pB-oY-iFK"/>
                     </view>
                     <connections>
@@ -359,7 +363,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="52z-0M-bzD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1172" y="132.68365817091455"/>
+            <point key="canvasLocation" x="1171.0144927536232" y="132.06521739130434"/>
         </scene>
         <!--Notification View Controller-->
         <scene sceneID="HVT-at-Syh">
@@ -529,8 +533,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="lna-Ic-bg7"/>
-        <segue reference="KNc-1a-xwW"/>
+        <segue reference="zc0-PU-P7M"/>
+        <segue reference="J99-Xq-okf"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>
