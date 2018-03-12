@@ -314,7 +314,6 @@
                                 </state>
                                 <connections>
                                     <action selector="addPushed:" destination="jky-Mu-jZz" eventType="touchUpInside" id="i2w-vA-bYK"/>
-                                    <action selector="addPushed:" destination="DBN-pn-hOx" eventType="touchUpInside" id="ssI-w4-keb"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UN5-wA-gEb">
@@ -325,7 +324,7 @@
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="gbm-zJ-Vmq" kind="show" identifier="TaskSegue" id="dAY-e9-c9V"/>
+                                    <action selector="nextPushed:" destination="jky-Mu-jZz" eventType="touchUpInside" id="MtT-ao-wN1"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -336,6 +335,7 @@
                         <outlet property="billText" destination="gsr-f0-AgD" id="jK9-EK-mF9"/>
                         <outlet property="datePicker" destination="tcj-Sh-xr2" id="wWb-KK-FE0"/>
                         <outlet property="timePicker" destination="mdF-Ra-0bL" id="J4W-kg-Nqv"/>
+                        <segue destination="gbm-zJ-Vmq" kind="show" identifier="TaskSegue" id="vmz-G5-Rwg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oo5-Kq-AMq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -394,7 +394,7 @@
         <!--Task View Controller-->
         <scene sceneID="mZ8-xI-3oI">
             <objects>
-                <viewController id="gbm-zJ-Vmq" customClass="TaskViewController" sceneMemberID="viewController">
+                <viewController id="gbm-zJ-Vmq" customClass="TaskViewController" customModule="Roomies" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SvN-l4-LaA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -405,7 +405,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ug5-x9-kNI">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ug5-x9-kNI" userLabel="Task Label">
                                 <rect key="frame" x="18" y="59" width="47" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="Hv5-Zt-Gkv"/>
@@ -423,7 +423,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Bill Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ykt-Ur-gQh">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Bill Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ykt-Ur-gQh" userLabel="Task Name">
                                 <rect key="frame" x="18" y="88" width="376" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Ick-I1-Qzn"/>
@@ -442,7 +442,7 @@
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="addPushed:" destination="gbm-zJ-Vmq" eventType="touchUpInside" id="PZo-eS-9dN"/>
+                                    <action selector="addTask:" destination="gbm-zJ-Vmq" eventType="touchUpInside" id="soQ-Pp-zen"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rg7-td-fha">
@@ -455,7 +455,7 @@
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fZ5-PQ-YSE">
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fZ5-PQ-YSE" userLabel="Roomie Picker">
                                 <rect key="frame" x="0.0" y="133" width="414" height="216"/>
                             </pickerView>
                         </subviews>
@@ -485,6 +485,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="51q-eV-d1O"/>
                     </view>
+                    <connections>
+                        <outlet property="roomiePicker" destination="fZ5-PQ-YSE" id="lpg-Rd-Pf8"/>
+                        <outlet property="taskLabel" destination="ug5-x9-kNI" id="RKc-sG-0tE"/>
+                        <outlet property="taskName" destination="ykt-Ur-gQh" id="q4B-Ss-ovP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lYR-lk-dyk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
