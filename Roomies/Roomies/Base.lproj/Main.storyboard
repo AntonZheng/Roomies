@@ -56,7 +56,7 @@
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="04f-Yi-J5H" kind="show" id="a5B-OY-3O2"/>
+                                    <action selector="signIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zXl-vi-ewd"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -79,6 +79,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="groupName" destination="5e7-5T-8JR" id="1BL-0I-LBD"/>
+                        <outlet property="userName" destination="24K-Xa-hMj" id="bTc-cY-Qts"/>
+                        <segue destination="04f-Yi-J5H" kind="show" identifier="showLanding" id="fD3-nf-ZSg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -529,8 +534,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="lna-Ic-bg7"/>
-        <segue reference="KNc-1a-xwW"/>
+        <segue reference="fD3-nf-ZSg"/>
+        <segue reference="J99-Xq-okf"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>
