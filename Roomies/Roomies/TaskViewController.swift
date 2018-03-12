@@ -67,6 +67,7 @@ class TaskViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         if taskName.text!.count > 0 {
             dbReference?.child("groups").child(self.group).child("tasks").child(taskName.text!).setValue(["Roomie": roomie])
             dbReference?.child("groups").child(self.group).child("users").child(roomie).child("notifications").childByAutoId().setValue(["notification": taskName.text!])
+            dbReference?.child("groups").child(self.group).child("users").child(roomie).child("tasks").childByAutoId().setValue(["task": taskName.text!])
             taskName.text = ""
             taskCount += 1
             taskLabel.text = "Task \(self.taskCount)"
@@ -77,6 +78,8 @@ class TaskViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         if taskName.text!.count > 0 {
             dbReference?.child("groups").child(self.group).child("tasks").child(taskName.text!).setValue(["Roomie": roomie])
             dbReference?.child("groups").child(self.group).child("users").child(roomie).child("notifications").childByAutoId().setValue(["notification": taskName.text!])
+            
+            dbReference?.child("groups").child(self.group).child("users").child(roomie).child("tasks").childByAutoId().setValue(["task": taskName.text!])
         }
         performSegue(withIdentifier: "FinishSegue", sender: self)
     }
