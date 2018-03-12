@@ -13,9 +13,10 @@ import FirebaseDatabase
 class NotificationViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var notificationsTable: UITableView!
     var dbReference: DatabaseReference?
-    var group = "info"
+    var group = "info200"
     var roomie = "govind"
     var notifications : [String] = []
+    var bills : [(String, String)] = []
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         NSLog("numberOfRowsInSection called")
@@ -31,10 +32,14 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let date = Date()
+        let calendar = Calendar.current
+        let month = calendar.component(.month, from: date)
+        let day = calendar.component(.day, from: date)
         dbReference = Database.database().reference()
-        let refRoomies = dbReference?.child("groups").child(self.group).child("users")
+        let refRoomies = dbReference?.child("groups").child(self.group)
         refRoomies?.observe(DataEventType.value, with: {(snapshot) in
-            self.notifications.removeAll()
+            /*self.notifications.removeAll()
             if snapshot.childrenCount > 0 {
                 let enumerator = snapshot.children
                 while let obj = enumerator.nextObject() as? DataSnapshot {
@@ -52,7 +57,34 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
                 self.notificationsTable.dataSource = self
                 self.notificationsTable.delegate = self
                 self.notificationsTable.tableFooterView = UIView()
+            } */
+            if let snapshots = snapshot.children.allObjects as? [DataSnapshot] {
+                self.notifications.removeAll()
+                for snap in snapshots {
+                    switch snap.key {
+                    case "users":
+                        let enumerator = snap.children
+                        while let obj = enumerator.nextObject() as? DataSnapshot {
+                            let value = obj.value as! [String:Any]
+                            let username = value["username"] as! String
+                            if username == self.roomie {
+                                if value["notifications"] != nil {
+                                    for (key, value) in value["notifications"] as! [String:Any] {
+                                        let val = value as! [String:Any]
+                                        self.notifications.insert(val["notification"] as! String, at: 0)
+                                    }
+                                }
+                            }
+                        }
+                    case "bills":
+                        let enumerator = snap.children
+                        
+                    default:
+                        NSError()
+                    }
+                }
             }
+            
         })
         // Do any additional setup after loading the view.
     }

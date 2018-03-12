@@ -12,13 +12,12 @@ import FirebaseDatabase
 class BillViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     @IBOutlet weak var billLabel: UILabel!
     @IBOutlet weak var datePicker: UIPickerView!
-    @IBOutlet weak var timePicker: UIDatePicker!
+    var roomies : [String] = []
     var dates : [Int] = []
     var dbReference: DatabaseReference?
     var group = ""
     @IBOutlet weak var billText: UITextField!
     var date = ""
-    var time = ""
     var billCount = 1
     
     func incoming(group: String) {
@@ -33,16 +32,17 @@ class BillViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         dbReference = Database.database().reference()
         dates = Array(1...31)
         self.date = "1"
-        let date = Date()
-        let calendar = Calendar.current
-        let comp = calendar.dateComponents([.hour, .minute], from: date)
-        let hour = comp.hour!
-        let minute = comp.minute!
-        if minute < 10 {
-            self.time = "\(String(hour)):0\(String(minute))"
-        } else {
-            self.time = "\(String(hour)):\(String(minute))"
-        }
+        let refRoomies = dbReference?.child("groups").child(group).child("users")
+        refRoomies?.observe(DataEventType.value, with: {(snapshot) in
+            self.roomies.removeAll()
+            if snapshot.childrenCount > 0 {
+                let enumerator = snapshot.children
+                while let obj = enumerator.nextObject() as? DataSnapshot {
+                    let value = obj.value as! [String:Any]
+                    self.roomies.append(value["username"] as! String)
+                }
+            }
+        })
     }
     
     override func didReceiveMemoryWarning() {
@@ -66,19 +66,12 @@ class BillViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         self.date = String(dates[row])
     }
     
-    
-    @IBAction func timePicked(_ sender: UIDatePicker) {
-        let date = sender.date
-        let calendar = Calendar.current
-        let comp = calendar.dateComponents([.hour, .minute], from: date)
-        let hour = comp.hour!
-        let minute = comp.minute!
-        time = String(describing: hour) + ":" + String(describing: minute)
-    }
-    
     @IBAction func addPushed(_ sender: Any) {
         if billText.text!.count > 0 {
-            dbReference?.child("groups").child(self.group).child("bills").child(billText.text!).setValue(["billName": billText.text!, "billDate": self.date, "billTime": self.time])
+            dbReference?.child("groups").child(self.group).child("bills").child(billText.text!).setValue(["billName": billText.text!, "dueDate": self.date])
+            for roomie in self.roomies {
+                dbReference?.child("groups").child(self.group).child("users").child(roomie).child("notifications").childByAutoId().setValue(["notification": billText.text!])
+            }
             billCount += 1
             billText.text = ""
             billLabel.text = "Bill \(billCount)"
@@ -87,7 +80,10 @@ class BillViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     
     @IBAction func nextPushed(_ sender: Any) {
         if billText.text!.count > 0 {
-            dbReference?.child("groups").child(self.group).child("bills").child(billText.text!).setValue(["billName": billText.text!, "billDate": self.date, "billTime": self.time])
+            dbReference?.child("groups").child(self.group).child("bills").child(billText.text!).setValue(["billName": billText.text!, "dueDate": self.date])
+            for roomie in self.roomies {
+                dbReference?.child("groups").child(self.group).child("users").child(roomie).child("notifications").childByAutoId().setValue(["notification": billText.text!])
+            }
         }
         performSegue(withIdentifier: "TaskSegue", sender: self)
     }
