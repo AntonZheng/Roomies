@@ -35,7 +35,7 @@ class NewUserViewController: UIViewController {
     
     @IBAction func addPushed(_ sender: Any) {
         if userText.text!.count > 0 {
-            dbReference?.child("groups").child(self.group).child("users").childByAutoId().setValue(["username": userText.text!])
+            dbReference?.child("groups").child(self.group).child("users").child(userText.text!).setValue(["username": userText.text!])
             userText.text = ""
             userCount += 1
             userLabel.text = "User \(self.userCount)"
@@ -44,7 +44,7 @@ class NewUserViewController: UIViewController {
     
     @IBAction func nextPushed(_ sender: Any) {
         if userText.text!.count > 0 {
-            dbReference?.child("groups").child(self.group).child("users").childByAutoId().setValue(["username": userText.text!])
+            dbReference?.child("groups").child(self.group).child("users").child(userText.text!).setValue(["username": userText.text!])
         }
         performSegue(withIdentifier: "BillSegue", sender: self)
     }
