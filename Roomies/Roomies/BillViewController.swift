@@ -10,7 +10,6 @@ import UIKit
 import FirebaseDatabase
 
 class BillViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
-    
     @IBOutlet weak var billLabel: UILabel!
     @IBOutlet weak var datePicker: UIPickerView!
     @IBOutlet weak var timePicker: UIDatePicker!
@@ -45,7 +44,7 @@ class BillViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             self.time = "\(String(hour)):\(String(minute))"
         }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -62,7 +61,7 @@ class BillViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return String(dates[row])
     }
-
+    
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         self.date = String(dates[row])
     }
@@ -102,5 +101,5 @@ class BillViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             NSLog("Unknown segue identifier -- " + segue.identifier!)
         }
     }
-
+    
 }
