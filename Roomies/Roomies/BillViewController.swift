@@ -78,7 +78,7 @@ class BillViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     
     @IBAction func addPushed(_ sender: Any) {
         if billText.text!.count > 0 {
-            dbReference?.child("groups").child(self.group).child("bills").childByAutoId().setValue(["billName": billText.text!, "billDate": self.date, "billTime": self.time])
+            dbReference?.child("groups").child(self.group).child("bills").child(billText.text!).setValue(["billName": billText.text!, "billDate": self.date, "billTime": self.time])
             billCount += 1
             billText.text = ""
             billLabel.text = "Bill \(billCount)"
@@ -87,7 +87,7 @@ class BillViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     
     @IBAction func nextPushed(_ sender: Any) {
         if billText.text!.count > 0 {
-            dbReference?.child("groups").child(self.group).child("bills").childByAutoId().setValue(["billName": billText.text!, "billDate": self.date, "billTime": self.time])
+            dbReference?.child("groups").child(self.group).child("bills").child(billText.text!).setValue(["billName": billText.text!, "billDate": self.date, "billTime": self.time])
         }
         performSegue(withIdentifier: "TaskSegue", sender: self)
     }

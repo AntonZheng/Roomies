@@ -26,7 +26,7 @@ class TaskViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         //print(roomies)
-        roomie = roomies[row]
+        self.roomie = roomies[row]
         //print(roomie)
     }
     
@@ -48,25 +48,24 @@ class TaskViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         dbReference = Database.database().reference()
         let refRoomies = dbReference?.child("groups").child(group).child("users")
         refRoomies?.observe(DataEventType.value, with: {(snapshot) in
+            self.roomies.removeAll()
             if snapshot.childrenCount > 0 {
-                let snap = snapshot.value as? [String:[String:String]]
-                for user in (snap?.values)!{
-                    self.roomies.append(user["username"]!)
-                    //print(user["username"]!)
+                let enumerator = snapshot.children
+                while let obj = enumerator.nextObject() as? DataSnapshot {
+                    let value = obj.value as! [String:Any]
+                    self.roomies.append(value["username"] as! String)
                 }
-                //print("\(self.roomies) v1")
+                self.roomie = self.roomies[0]
+                self.roomiePicker.dataSource = self
+                self.roomiePicker.delegate = self
             }
-            //print("\(self.roomies) v2")
-            self.roomiePicker.dataSource = self
-            self.roomiePicker.delegate = self
         })
-        //print("\(self.roomies) v3")
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func addTask(_ sender: Any) {
         if taskName.text!.count > 0 {
             dbReference?.child("groups").child(self.group).child("tasks").child(taskName.text!).setValue(["Roomie": roomie])
+            dbReference?.child("groups").child(self.group).child("users").child(roomie).child("notifications").childByAutoId().setValue(["notification": taskName.text!])
         }
     }
     
