@@ -65,7 +65,7 @@ class ViewController: UIViewController {
         switch segue.identifier! {
         case "showLanding":
             let destination = segue.destination as? LandingTableViewController
-            destination?.incoming(group: self.groupName, username: self.userName)
+            destination?.incoming(group: self.groupName.text!, username: self.userName.text!)
         default:
             NSLog("Unknown segue identifier -- " + segue.identifier!)
         }
