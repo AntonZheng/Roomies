@@ -314,7 +314,6 @@
                                 </state>
                                 <connections>
                                     <action selector="addPushed:" destination="jky-Mu-jZz" eventType="touchUpInside" id="i2w-vA-bYK"/>
-                                    <action selector="addPushed:" destination="DBN-pn-hOx" eventType="touchUpInside" id="ssI-w4-keb"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UN5-wA-gEb">
@@ -325,7 +324,7 @@
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="gbm-zJ-Vmq" kind="show" identifier="TaskSegue" id="dAY-e9-c9V"/>
+                                    <action selector="nextPushed:" destination="jky-Mu-jZz" eventType="touchUpInside" id="0Ju-64-Oi1"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -333,9 +332,11 @@
                         <viewLayoutGuide key="safeArea" id="Yjj-ik-pXH"/>
                     </view>
                     <connections>
+                        <outlet property="billLabel" destination="bfP-7Z-zl2" id="QnF-p9-tKD"/>
                         <outlet property="billText" destination="gsr-f0-AgD" id="jK9-EK-mF9"/>
                         <outlet property="datePicker" destination="tcj-Sh-xr2" id="wWb-KK-FE0"/>
                         <outlet property="timePicker" destination="mdF-Ra-0bL" id="J4W-kg-Nqv"/>
+                        <segue destination="gbm-zJ-Vmq" kind="show" identifier="TaskSegue" id="t5C-zh-WND"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oo5-Kq-AMq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -385,16 +386,65 @@
                     </view>
                     <connections>
                         <outlet property="optionsTable" destination="v0q-ZV-dyB" id="aw9-pj-H7V"/>
+                        <segue destination="b0B-wX-quw" kind="show" identifier="NSegue" id="ozb-4e-3J4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="52z-0M-bzD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1172" y="132.68365817091455"/>
         </scene>
+        <!--Notification View Controller-->
+        <scene sceneID="Z4H-15-1wK">
+            <objects>
+                <viewController id="b0B-wX-quw" customClass="NotificationViewController" customModule="Roomies" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tYD-eH-bk4">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Notifications" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pkX-Q1-oBG">
+                                <rect key="frame" x="20" y="20" width="374" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Lmq-pr-vVO">
+                                <rect key="frame" x="0.0" y="66" width="414" height="670"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="gms-2c-95S" style="IBUITableViewCellStyleDefault" id="A01-np-VCd">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="A01-np-VCd" id="czr-bx-1T1">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gms-2c-95S">
+                                                    <rect key="frame" x="15" y="0.0" width="384" height="43.666666666666664"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Tb7-sb-PeV"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gbp-qO-hzQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2123.1884057971015" y="132.06521739130434"/>
+        </scene>
         <!--Task View Controller-->
         <scene sceneID="mZ8-xI-3oI">
             <objects>
-                <viewController id="gbm-zJ-Vmq" customClass="TaskViewController" sceneMemberID="viewController">
+                <viewController id="gbm-zJ-Vmq" customClass="TaskViewController" customModule="Roomies" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SvN-l4-LaA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -442,7 +492,6 @@
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="addPushed:" destination="DBN-pn-hOx" eventType="touchUpInside" id="4Ba-1p-7U0"/>
                                     <action selector="addPushed:" destination="gbm-zJ-Vmq" eventType="touchUpInside" id="PZo-eS-9dN"/>
                                 </connections>
                             </button>
@@ -499,7 +548,7 @@
         <!--LandingTable-->
         <scene sceneID="Rgy-dH-3Mc">
             <objects>
-                <viewController title="LandingTable" id="a1h-X7-CXK" customClass="LandingTableViewController" customModule="Roomies" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="LandingTable" id="a1h-X7-CXK" customClass="LandingTableViewController" customModule="Roomies" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rLC-yP-wrz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -515,7 +564,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Notifications" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="COu-az-DEc">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="COu-az-DEc">
                                                     <rect key="frame" x="15" y="0.0" width="384" height="43.666666666666664"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -547,7 +596,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="J99-Xq-okf"/>
+        <segue reference="KNc-1a-xwW"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>

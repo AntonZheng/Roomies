@@ -28,9 +28,7 @@ class TaskViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     var group = ""
     var roomies : [String] = []
     var roomie = ""
-    @IBOutlet weak var roomiePicker: UIPickerView!
     var dbReference: DatabaseReference?
-    @IBOutlet weak var taskLabel: UILabel!
     
     func incoming(group: String) {
         self.group = group
@@ -38,8 +36,8 @@ class TaskViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.roomiePicker.delegate = self
-        self.roomiePicker.dataSource = self
+        //self.roomiePicker.delegate = self
+        //self.roomiePicker.dataSource = self
         dbReference = Database.database().reference()
         let refRoomies = dbReference?.child("groups").child(group).child("users")
         refRoomies?.observe(DataEventType.value, with: {(snapshot) in
