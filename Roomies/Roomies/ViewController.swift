@@ -5,7 +5,6 @@
 //  Created by Anton Zheng on 3/1/18.
 //  Copyright © 2018 Anton Zheng. All rights reserved.
 //
-
 import UIKit
 import FirebaseDatabase
 
@@ -76,7 +75,6 @@ class ViewController: UIViewController {
         
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    
 }
-

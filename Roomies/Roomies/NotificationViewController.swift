@@ -13,7 +13,7 @@ import FirebaseDatabase
 class NotificationViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var notificationsTable: UITableView!
     var dbReference: DatabaseReference?
-    var group = "info200"
+    var group = "info"
     var roomie = "govind"
     var notifications : [String] = []
     var bills : [(String, String)] = []
@@ -39,27 +39,9 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
         dbReference = Database.database().reference()
         let refRoomies = dbReference?.child("groups").child(self.group)
         refRoomies?.observe(DataEventType.value, with: {(snapshot) in
-            /*self.notifications.removeAll()
-            if snapshot.childrenCount > 0 {
-                let enumerator = snapshot.children
-                while let obj = enumerator.nextObject() as? DataSnapshot {
-                    let value = obj.value as! [String:Any]
-                    let username = value["username"] as! String
-                    if username == self.roomie {
-                        if value["notifications"] != nil {
-                            for (key, value) in value["notifications"] as! [String:Any] {
-                                let val = value as! [String:Any]
-                                self.notifications.insert(val["notification"] as! String, at:0)
-                            }
-                        }
-                    }
-                }
-                self.notificationsTable.dataSource = self
-                self.notificationsTable.delegate = self
-                self.notificationsTable.tableFooterView = UIView()
-            } */
             if let snapshots = snapshot.children.allObjects as? [DataSnapshot] {
                 self.notifications.removeAll()
+                self.bills.removeAll()
                 for snap in snapshots {
                     switch snap.key {
                     case "users":
@@ -78,11 +60,28 @@ class NotificationViewController: UIViewController, UITableViewDataSource, UITab
                         }
                     case "bills":
                         let enumerator = snap.children
-                        
+                        while let obj = enumerator.nextObject() as? DataSnapshot {
+                            if let value = obj.value as? [String:Any] {
+                                self.bills.append((value["billName"] as! String, value["billDate"] as! String))
+                            }
+                        }
+                        for bill in self.bills {
+                            if day > Int(bill.1)! {
+                                var newDate = Calendar.current.date(byAdding: .month, value: 1, to: Date())
+                                let newMonth = Calendar.current.component(.month, from: newDate!)
+                                let dateFormatter = DateFormatter()
+                                dateFormatter.dateFormat = "LLLL"
+                                let monthName = dateFormatter.string(from: newDate!)
+                                self.notifications.insert("\(bill.0 as! String) due on \(monthName) \(bill.1)", at: 0)
+                            }
+                        }
                     default:
-                        NSError()
+                        NSLog("No children")
                     }
                 }
+                self.notificationsTable.dataSource = self
+                self.notificationsTable.delegate = self
+                self.notificationsTable.tableFooterView = UIView()
             }
             
         })
