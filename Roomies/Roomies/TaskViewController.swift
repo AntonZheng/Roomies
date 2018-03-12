@@ -39,6 +39,7 @@ class TaskViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     var roomies : [String] = []
     var roomie = ""
     var dbReference: DatabaseReference?
+    var taskCount = 1
     func incoming(group: String) {
         self.group = group
     }
@@ -66,6 +67,9 @@ class TaskViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         if taskName.text!.count > 0 {
             dbReference?.child("groups").child(self.group).child("tasks").child(taskName.text!).setValue(["Roomie": roomie])
             dbReference?.child("groups").child(self.group).child("users").child(roomie).child("notifications").childByAutoId().setValue(["notification": taskName.text!])
+            taskName.text = ""
+            taskCount += 1
+            taskLabel.text = "Task \(self.taskCount)"
         }
     }
     
