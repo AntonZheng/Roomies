@@ -54,7 +54,10 @@ class LandingTableViewController: UIViewController, UITableViewDelegate, UITable
         // Pass the selected object to the new view controller.
         switch segue.identifier! {
         case "NSegue":
-            print("hello")
+            let destination = segue.destination as? NotificationViewController
+            destination?.incoming(group: self.group, roomie: self.username)
+        case "SignOut":
+            break
         default:
             NSLog("Unknown segue identifier -- " + segue.identifier!)
         }

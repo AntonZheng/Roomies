@@ -69,6 +69,14 @@ class TaskViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         }
     }
     
+    @IBAction func nextPushed(_ sender: Any) {
+        if taskName.text!.count > 0 {
+            dbReference?.child("groups").child(self.group).child("tasks").child(taskName.text!).setValue(["Roomie": roomie])
+            dbReference?.child("groups").child(self.group).child("users").child(roomie).child("notifications").childByAutoId().setValue(["notification": taskName.text!])
+        }
+        performSegue(withIdentifier: "FinishSegue", sender: self)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

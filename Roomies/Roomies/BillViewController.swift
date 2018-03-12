@@ -69,8 +69,13 @@ class BillViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     @IBAction func addPushed(_ sender: Any) {
         if billText.text!.count > 0 {
             dbReference?.child("groups").child(self.group).child("bills").child(billText.text!).setValue(["billName": billText.text!, "billDate": self.date])
+            let date = Date()
+            let newMonth = Calendar.current.component(.month, from: date)
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "LLLL"
+            let monthName = dateFormatter.string(from: date)
             for roomie in self.roomies {
-                dbReference?.child("groups").child(self.group).child("users").child(roomie).child("notifications").childByAutoId().setValue(["notification": billText.text!])
+                dbReference?.child("groups").child(self.group).child("users").child(roomie).child("notifications").childByAutoId().setValue(["notification": "\(billText.text!) due on \(monthName) \(self.date)"])
             }
             billCount += 1
             billText.text = ""
@@ -81,8 +86,13 @@ class BillViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     @IBAction func nextPushed(_ sender: Any) {
         if billText.text!.count > 0 {
             dbReference?.child("groups").child(self.group).child("bills").child(billText.text!).setValue(["billName": billText.text!, "billDate": self.date])
+            let date = Date()
+            let newMonth = Calendar.current.component(.month, from: date)
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "LLLL"
+            let monthName = dateFormatter.string(from: date)
             for roomie in self.roomies {
-                dbReference?.child("groups").child(self.group).child("users").child(roomie).child("notifications").childByAutoId().setValue(["notification": billText.text!])
+            dbReference?.child("groups").child(self.group).child("users").child(roomie).child("notifications").childByAutoId().setValue(["notification": "\(billText.text!) due on \(monthName) \(self.date)"])
             }
         }
         performSegue(withIdentifier: "TaskSegue", sender: self)

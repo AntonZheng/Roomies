@@ -13,10 +13,15 @@ import FirebaseDatabase
 class NotificationViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var notificationsTable: UITableView!
     var dbReference: DatabaseReference?
-    var group = "info"
-    var roomie = "govind"
+    var group = ""
+    var roomie = ""
     var notifications : [String] = []
     var bills : [(String, String)] = []
+    
+    func incoming(group: String, roomie: String) {
+        self.group = group
+        self.roomie = roomie
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         NSLog("numberOfRowsInSection called")

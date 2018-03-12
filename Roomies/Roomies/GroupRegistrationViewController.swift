@@ -42,6 +42,8 @@ class GroupRegistrationViewController: UIViewController {
         case "NewUserSegue":
             let destination = segue.destination as? NewUserViewController
             destination!.incomingVars(group: self.group)
+        case "HomeSegue":
+            break
         default:
             NSLog("Unknown segue identifier -- " + segue.identifier!)
         }
