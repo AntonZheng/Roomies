@@ -68,7 +68,7 @@ class BillViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     
     @IBAction func addPushed(_ sender: Any) {
         if billText.text!.count > 0 {
-            dbReference?.child("groups").child(self.group).child("bills").child(billText.text!).setValue(["billName": billText.text!, "dueDate": self.date])
+            dbReference?.child("groups").child(self.group).child("bills").child(billText.text!).setValue(["billName": billText.text!, "billDate": self.date])
             for roomie in self.roomies {
                 dbReference?.child("groups").child(self.group).child("users").child(roomie).child("notifications").childByAutoId().setValue(["notification": billText.text!])
             }
@@ -80,7 +80,7 @@ class BillViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     
     @IBAction func nextPushed(_ sender: Any) {
         if billText.text!.count > 0 {
-            dbReference?.child("groups").child(self.group).child("bills").child(billText.text!).setValue(["billName": billText.text!, "dueDate": self.date])
+            dbReference?.child("groups").child(self.group).child("bills").child(billText.text!).setValue(["billName": billText.text!, "billDate": self.date])
             for roomie in self.roomies {
                 dbReference?.child("groups").child(self.group).child("users").child(roomie).child("notifications").childByAutoId().setValue(["notification": billText.text!])
             }
