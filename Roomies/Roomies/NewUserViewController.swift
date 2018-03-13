@@ -36,11 +36,9 @@ class NewUserViewController: UIViewController {
     @IBAction func addPushed(_ sender: Any) {
         if userText.text!.count > 0 {
             if userCount == 1 {
-                dbReference?.child("groups").child(self.group).child("users").child(userText.text!).setValue(["username": userText.text!])
-                dbReference?.child("groups").child(self.group).child("users").child(userText.text!).setValue(["admin": "true"])
+                dbReference?.child("groups").child(self.group).child("users").child(userText.text!).setValue(["username": userText.text!, "admin": true])
             } else {
-                dbReference?.child("groups").child(self.group).child("users").child(userText.text!).setValue(["username": userText.text!])
-                dbReference?.child("groups").child(self.group).child("users").child(userText.text!).setValue(["admin": "false"])
+                dbReference?.child("groups").child(self.group).child("users").child(userText.text!).setValue(["username": userText.text!, "admin": false])
             }
             userText.text = ""
             userCount += 1

@@ -379,7 +379,11 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AEW-KL-i1e">
                                 <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                                 <items>
-                                    <barButtonItem title="Home" id="R2c-43-Zqa"/>
+                                    <barButtonItem title="Home" id="R2c-43-Zqa">
+                                        <connections>
+                                            <segue destination="04f-Yi-J5H" kind="show" identifier="UnwindTask" id="Fv3-xs-bHy"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tasks" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eOI-W0-tCr">
@@ -396,11 +400,11 @@
                                         <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NVC-gu-S05" id="8X3-Wk-nOF">
-                                            <rect key="frame" x="0.0" y="0.0" width="736" height="43.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Wko-Da-Xri">
-                                                    <rect key="frame" x="15" y="0.0" width="706" height="43.666666666666664"/>
+                                                    <rect key="frame" x="15" y="0.0" width="384" height="43.666666666666664"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -437,10 +441,10 @@
             </objects>
             <point key="canvasLocation" x="2241" y="-574"/>
         </scene>
-        <!--View Controller-->
+        <!--Single Task View Controller-->
         <scene sceneID="M0t-Q0-7Dy">
             <objects>
-                <viewController id="ff7-c7-43P" sceneMemberID="viewController">
+                <viewController id="ff7-c7-43P" customClass="SingleTaskViewController" customModule="Roomies" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ebZ-L1-rcc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -460,6 +464,9 @@
                                 <state key="normal" title="Send Reminder">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="sendPushed:" destination="ff7-c7-43P" eventType="touchUpInside" id="dIa-2W-dsJ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="88F-oh-LzZ">
                                 <rect key="frame" x="116" y="404" width="182" height="30"/>
@@ -467,6 +474,9 @@
                                 <state key="normal" title="Complete">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="completePushed:" destination="ff7-c7-43P" eventType="touchUpInside" id="pUK-Va-hlU"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -483,6 +493,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7ud-CZ-n8L"/>
                     </view>
+                    <connections>
+                        <outlet property="completeButton" destination="88F-oh-LzZ" id="Eig-3p-q5m"/>
+                        <outlet property="reminderButton" destination="xzy-47-Tdz" id="vOO-fb-02u"/>
+                        <outlet property="taskLabel" destination="6yK-aV-nBJ" id="86l-7J-Psv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="weJ-AW-PGx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -520,11 +535,11 @@
                                         <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ak4-az-Ank" id="TPP-2X-DzJ">
-                                            <rect key="frame" x="0.0" y="0.0" width="736" height="43.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4yw-Pu-r5M">
-                                                    <rect key="frame" x="15" y="0.0" width="706" height="43.666666666666664"/>
+                                                    <rect key="frame" x="15" y="0.0" width="384" height="43.666666666666664"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
