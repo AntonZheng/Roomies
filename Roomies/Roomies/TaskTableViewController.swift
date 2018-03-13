@@ -111,7 +111,7 @@ class TaskTableViewController: UIViewController, UITableViewDataSource, UITableV
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier! {
         case "SingleTask":
-            let destination = segue.destination as? TaskViewController
+            let destination = segue.destination as? SingleTaskViewController
             destination?.incoming(group: self.group, roomie: self.roomie, task: self.row, taskRoomie: self.section)
         default:
             NSLog("Unknown segue identifier -- " + segue.identifier!)

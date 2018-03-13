@@ -441,15 +441,15 @@
             </objects>
             <point key="canvasLocation" x="2239.130434782609" y="-574.72826086956525"/>
         </scene>
-        <!--View Controller-->
+        <!--Single Task View Controller-->
         <scene sceneID="M0t-Q0-7Dy">
             <objects>
-                <viewController id="ff7-c7-43P" sceneMemberID="viewController">
+                <viewController id="ff7-c7-43P" customClass="SingleTaskViewController" customModule="Roomies" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ebZ-L1-rcc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6yK-aV-nBJ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6yK-aV-nBJ">
                                 <rect key="frame" x="20" y="205" width="374" height="143"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="143" id="vog-47-NQe"/>
@@ -464,6 +464,9 @@
                                 <state key="normal" title="Send Reminder">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="sendPushed:" destination="ff7-c7-43P" eventType="touchUpInside" id="Kgf-Wg-U1t"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="88F-oh-LzZ">
                                 <rect key="frame" x="116" y="404" width="182" height="30"/>
@@ -471,6 +474,9 @@
                                 <state key="normal" title="Complete">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="completePushed:" destination="ff7-c7-43P" eventType="touchUpInside" id="KF6-gO-mb6"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -487,6 +493,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7ud-CZ-n8L"/>
                     </view>
+                    <connections>
+                        <outlet property="completeButton" destination="88F-oh-LzZ" id="eW2-mC-Dc7"/>
+                        <outlet property="reminderButton" destination="xzy-47-Tdz" id="rdZ-sg-0yB"/>
+                        <outlet property="taskLabel" destination="6yK-aV-nBJ" id="P1M-Q0-kFK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="weJ-AW-PGx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

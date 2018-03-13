@@ -47,6 +47,9 @@ class SingleTaskViewController: UIViewController {
                     }
                 }
                 self.reminderButton.isEnabled = self.enable
+                if self.enable == false {
+                    self.reminderButton.backgroundColor = .gray
+                }
             }
         })
         // Do any additional setup after loading the view.
