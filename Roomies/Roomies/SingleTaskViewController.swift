@@ -19,9 +19,18 @@ class SingleTaskViewController: UIViewController {
     @IBOutlet weak var completeButton: UIButton!
     var enable = false
     var dbReference : DatabaseReference?
+    
+    func incoming(group: String, roomie: String, task: String, taskRoomie: String) {
+        self.group = group
+        self.roomie = roomie
+        self.task = task
+        self.taskRoomie = taskRoomie
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         dbReference = Database.database().reference()
+        taskLabel.text = self.task
         let refRoomies = dbReference?.child("groups").child(self.group).child("users")
         refRoomies?.observe(DataEventType.value, with: {(snapshot) in
             if snapshot.childrenCount > 0 {
