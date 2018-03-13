@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		00DC5ED7035688372DF316AD /* Pods_RoomiesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2B3BEA9C2040739FC491778 /* Pods_RoomiesUITests.framework */; };
 		248C185E2055D1A400F4542A /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248C185D2055D1A400F4542A /* TaskViewController.swift */; };
+		2492773E20575D4000AE2468 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2492773D20575D4000AE2468 /* GoogleService-Info.plist */; };
 		2493D0D72048EC7A00222E61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2493D0D62048EC7A00222E61 /* AppDelegate.swift */; };
 		2493D0D92048EC7B00222E61 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2493D0D82048EC7A00222E61 /* ViewController.swift */; };
 		2493D0DC2048EC7B00222E61 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2493D0DA2048EC7B00222E61 /* Main.storyboard */; };
@@ -16,7 +17,6 @@
 		2493D0E12048EC7B00222E61 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2493D0DF2048EC7B00222E61 /* LaunchScreen.storyboard */; };
 		2493D0EC2048EC7B00222E61 /* RoomiesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2493D0EB2048EC7B00222E61 /* RoomiesTests.swift */; };
 		2493D0F72048EC7B00222E61 /* RoomiesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2493D0F62048EC7B00222E61 /* RoomiesUITests.swift */; };
-		24DF6A192050CDD200E640D1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 24DF6A182050CDD200E640D1 /* GoogleService-Info.plist */; };
 		28A1C41ECBE3DB40638D7A21 /* Pods_RoomiesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB4696C791618EACADFC6C56 /* Pods_RoomiesTests.framework */; };
 		644036DF2E8F6A31874FAE3B /* Pods_Roomies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4FE0BB03891C855F4686ECC /* Pods_Roomies.framework */; };
 		AC4FADEB2054C701004B2309 /* BillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4FADEA2054C701004B2309 /* BillViewController.swift */; };
@@ -47,6 +47,7 @@
 
 /* Begin PBXFileReference section */
 		248C185D2055D1A400F4542A /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
+		2492773D20575D4000AE2468 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2493D0D32048EC7A00222E61 /* Roomies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Roomies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2493D0D62048EC7A00222E61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2493D0D82048EC7A00222E61 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -60,7 +61,6 @@
 		2493D0F22048EC7B00222E61 /* RoomiesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RoomiesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2493D0F62048EC7B00222E61 /* RoomiesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomiesUITests.swift; sourceTree = "<group>"; };
 		2493D0F82048EC7B00222E61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		24DF6A182050CDD200E640D1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		447B4079142460258AA3A1A6 /* Pods-RoomiesUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoomiesUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RoomiesUITests/Pods-RoomiesUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		4B2804033EC07E9D7EF43D2C /* Pods-Roomies.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Roomies.release.xcconfig"; path = "Pods/Target Support Files/Pods-Roomies/Pods-Roomies.release.xcconfig"; sourceTree = "<group>"; };
 		4F02C77BB42DB121C633DD12 /* Pods-RoomiesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoomiesTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RoomiesTests/Pods-RoomiesTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -138,7 +138,6 @@
 				2493D0DA2048EC7B00222E61 /* Main.storyboard */,
 				2493D0DD2048EC7B00222E61 /* Assets.xcassets */,
 				2493D0DF2048EC7B00222E61 /* LaunchScreen.storyboard */,
-				24DF6A182050CDD200E640D1 /* GoogleService-Info.plist */,
 				2493D0E22048EC7B00222E61 /* Info.plist */,
 				AC7C61782052424400635F7A /* GroupRegistrationViewController.swift */,
 				AC7C617A2052646500635F7A /* NewUserViewController.swift */,
@@ -147,6 +146,7 @@
 				AC4FADEE20566E93004B2309 /* NotificationViewController.swift */,
 				AC4FADF2205738D1004B2309 /* SingleTaskViewController.swift */,
 				AC4FADF020572F53004B2309 /* TaskTableViewController.swift */,
+				2492773D20575D4000AE2468 /* GoogleService-Info.plist */,
 			);
 			path = Roomies;
 			sourceTree = "<group>";
@@ -309,7 +309,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2493D0E12048EC7B00222E61 /* LaunchScreen.storyboard in Resources */,
-				24DF6A192050CDD200E640D1 /* GoogleService-Info.plist in Resources */,
+				2492773E20575D4000AE2468 /* GoogleService-Info.plist in Resources */,
 				2493D0DE2048EC7B00222E61 /* Assets.xcassets in Resources */,
 				2493D0DC2048EC7B00222E61 /* Main.storyboard in Resources */,
 			);
@@ -668,10 +668,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7C9NCGD79M;
+				DEVELOPMENT_TEAM = 8HNHUUK7L2;
 				INFOPLIST_FILE = Roomies/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = universityofwashington.Roomies;
+				PRODUCT_BUNDLE_IDENTIFIER = uw.info.Roomies;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
@@ -686,10 +686,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7C9NCGD79M;
+				DEVELOPMENT_TEAM = 8HNHUUK7L2;
 				INFOPLIST_FILE = Roomies/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = universityofwashington.Roomies;
+				PRODUCT_BUNDLE_IDENTIFIER = uw.info.Roomies;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;

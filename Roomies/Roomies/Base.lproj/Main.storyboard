@@ -346,9 +346,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RHI-wK-43G">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RHI-wK-43G">
                                 <rect key="frame" x="327" y="686" width="60" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Sign Out"/>
                                 <connections>
                                     <segue destination="BYZ-38-t0r" kind="show" identifier="SignOut" id="rDW-sO-jFN"/>
@@ -356,6 +355,10 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="3pB-oY-iFK" firstAttribute="bottom" secondItem="RHI-wK-43G" secondAttribute="bottom" constant="20" id="O8V-s2-vQF"/>
+                            <constraint firstItem="3pB-oY-iFK" firstAttribute="trailing" secondItem="RHI-wK-43G" secondAttribute="trailing" constant="27" id="a9F-OD-efl"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="3pB-oY-iFK"/>
                     </view>
                     <connections>
@@ -744,8 +747,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="DfG-fd-hNH"/>
-        <segue reference="2sz-XN-7Zy"/>
+        <segue reference="nTh-Rf-U6G"/>
+        <segue reference="vmz-G5-Rwg"/>
+        <segue reference="NgM-3Q-DBG"/>
         <segue reference="lna-Ic-bg7"/>
         <segue reference="rDW-sO-jFN"/>
     </inferredMetricsTieBreakers>

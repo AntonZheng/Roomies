@@ -7,9 +7,9 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>906214423056-8dbhcfmd8bm95garb08ge5je1u2hbcdh.apps.googleusercontent.com</string>
+	<string>906214423056-o62to66d56boditcq148h30kn92ae5s9.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.906214423056-8dbhcfmd8bm95garb08ge5je1u2hbcdh</string>
+	<string>com.googleusercontent.apps.906214423056-o62to66d56boditcq148h30kn92ae5s9</string>
 	<key>API_KEY</key>
 	<string>AIzaSyDzxCECoCVNutCKFNnS9nuMRv2y0e-5cLU</string>
 	<key>GCM_SENDER_ID</key>
@@ -17,7 +17,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>universityofwashington.Roomies</string>
+	<string>uw.info.Roomies</string>
 	<key>PROJECT_ID</key>
 	<string>roomies-84dcf</string>
 	<key>STORAGE_BUCKET</key>
@@ -33,7 +33,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:906214423056:ios:caba9fe083b14f91</string>
+	<string>1:906214423056:ios:1f78859b9a39d2f4</string>
 	<key>DATABASE_URL</key>
 	<string>https://roomies-84dcf.firebaseio.com</string>
 </dict>
