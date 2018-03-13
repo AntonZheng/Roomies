@@ -102,7 +102,7 @@ class BillViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         switch segue.identifier! {
         case "TaskSegue":
             let destination = segue.destination as? TaskViewController
-            destination?.incoming(group: self.group)
+            destination?.incoming(group: self.group, newGroup: true, user: "")
         default:
             NSLog("Unknown segue identifier -- " + segue.identifier!)
         }

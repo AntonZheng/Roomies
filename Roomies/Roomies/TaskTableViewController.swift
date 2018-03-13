@@ -61,12 +61,10 @@ class TaskTableViewController: UIViewController, UITableViewDataSource, UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
         dbReference = Database.database().reference()
-        /*self.taskTable.dataSource = self
-        self.taskTable.delegate = self
-        self.taskTable.tableFooterView = UIView()*/
         let refRoomies = dbReference?.child("groups").child(self.group).child("users")
         refRoomies?.observe(DataEventType.value, with: { (snapshot) in
             if snapshot.childrenCount > 0 {
+                self.taskObjects.removeAll()
                 let enumerator = snapshot.children
                 var temptasks:[String] = []
                 while let obj = enumerator.nextObject() as? DataSnapshot {
@@ -78,6 +76,8 @@ class TaskTableViewController: UIViewController, UITableViewDataSource, UITableV
                         }
                         let username = value["username"] as! String
                         self.taskObjects.append(Tasks(name: username, tasks: temptasks))
+                        temptasks.removeAll()
+                        print(self.taskObjects)
                     }
                 }
                 self.taskTable.dataSource = self
@@ -113,6 +113,12 @@ class TaskTableViewController: UIViewController, UITableViewDataSource, UITableV
         case "SingleTask":
             let destination = segue.destination as? SingleTaskViewController
             destination?.incoming(group: self.group, roomie: self.roomie, task: self.row, taskRoomie: self.section)
+        case "NewTask":
+            let destination = segue.destination as? TaskViewController
+            destination?.incoming(group: self.group, newGroup: false, user: self.roomie)
+        case "Home":
+            let destination = segue.destination as? LandingTableViewController
+            destination?.incoming(group: self.group, username: self.roomie)
         default:
             NSLog("Unknown segue identifier -- " + segue.identifier!)
         }

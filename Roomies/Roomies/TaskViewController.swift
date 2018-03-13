@@ -40,8 +40,12 @@ class TaskViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     var roomie = ""
     var dbReference: DatabaseReference?
     var taskCount = 1
-    func incoming(group: String) {
+    var newGroup : Bool = true
+    var user = ""
+    func incoming(group: String, newGroup: Bool, user: String) {
         self.group = group
+        self.newGroup = newGroup
+        self.user = user
     }
     
     override func viewDidLoad() {
@@ -81,7 +85,11 @@ class TaskViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             
             dbReference?.child("groups").child(self.group).child("users").child(roomie).child("tasks").childByAutoId().setValue(["task": taskName.text!])
         }
-        performSegue(withIdentifier: "FinishSegue", sender: self)
+        if newGroup {
+            performSegue(withIdentifier: "FinishSegue", sender: self)
+        } else {
+            performSegue(withIdentifier: "BackToHome", sender: self)
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -90,15 +98,17 @@ class TaskViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     }
     
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier! {
+        case "FinishSegue":
+            break
+        case "BackToHome":
+            let destination = segue.destination as? LandingTableViewController
+            destination?.incoming(group: self.group, username: self.user)
+        default:
+            NSLog("Unknown segue identifier -- " + segue.identifier!)
+        }
+    }
     
 }
 

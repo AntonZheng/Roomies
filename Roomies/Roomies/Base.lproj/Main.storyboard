@@ -379,7 +379,16 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AEW-KL-i1e">
                                 <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                                 <items>
-                                    <barButtonItem title="Home" id="R2c-43-Zqa"/>
+                                    <barButtonItem title="Home" id="R2c-43-Zqa">
+                                        <connections>
+                                            <segue destination="04f-Yi-J5H" kind="show" identifier="Home" id="dTN-Vd-aNz"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Add Task" id="gce-jN-sW3">
+                                        <connections>
+                                            <segue destination="gbm-zJ-Vmq" kind="show" identifier="NewTask" id="DfG-fd-hNH"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tasks" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eOI-W0-tCr">
@@ -478,6 +487,14 @@
                                     <action selector="completePushed:" destination="ff7-c7-43P" eventType="touchUpInside" id="KF6-gO-mb6"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fTL-TO-bwe">
+                                <rect key="frame" x="26" y="686" width="34" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <segue destination="Hlg-g6-rb0" kind="show" identifier="BackToTask" id="2sz-XN-7Zy"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -516,7 +533,7 @@
                                 <items>
                                     <barButtonItem title="Home" id="ooP-73-nxr">
                                         <connections>
-                                            <segue destination="04f-Yi-J5H" kind="show" id="lna-Ic-bg7"/>
+                                            <segue destination="04f-Yi-J5H" kind="show" identifier="Home2" id="lna-Ic-bg7"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -678,6 +695,7 @@
                         <outlet property="taskLabel" destination="ug5-x9-kNI" id="RKc-sG-0tE"/>
                         <outlet property="taskName" destination="ykt-Ur-gQh" id="q4B-Ss-ovP"/>
                         <segue destination="h38-qu-OOa" kind="show" identifier="FinishSegue" id="NFR-HR-s1R"/>
+                        <segue destination="04f-Yi-J5H" kind="show" identifier="BackToHome" id="b0T-Si-5ix"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lYR-lk-dyk" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -726,6 +744,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="DfG-fd-hNH"/>
+        <segue reference="2sz-XN-7Zy"/>
         <segue reference="lna-Ic-bg7"/>
         <segue reference="rDW-sO-jFN"/>
     </inferredMetricsTieBreakers>

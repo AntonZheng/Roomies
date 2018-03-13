@@ -10,10 +10,10 @@ import UIKit
 import FirebaseDatabase
 
 class SingleTaskViewController: UIViewController {
-    var task = "buy groceries"
-    var group = "info"
-    var roomie = "anton"
-    var taskRoomie = "govind"
+    var task = ""
+    var group = ""
+    var roomie = ""
+    var taskRoomie = ""
     @IBOutlet weak var taskLabel: UILabel!
     @IBOutlet weak var reminderButton: UIButton!
     @IBOutlet weak var completeButton: UIButton!
@@ -90,14 +90,17 @@ class SingleTaskViewController: UIViewController {
         
         dbReference?.child("groups").child(self.group).child("users").child(self.roomie).child("notifications").child(notifID).removeValue()
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        switch segue.identifier! {
+        case "BackToTask":
+        let destination = segue.destination as? TaskTableViewController
+        destination?.incoming(group: self.group, roomie: self.roomie)
+        default:
+            NSLog("Unknown segue identifier -- " + segue.identifier!)
+        }
     }
-    */
 
 }
