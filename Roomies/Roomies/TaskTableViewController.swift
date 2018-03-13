@@ -33,10 +33,18 @@ class TaskTableViewController: UIViewController, UITableViewDataSource, UITableV
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.section = taskObjects[indexPath.section].name
+        self.row = taskObjects[indexPath.section].tasks[indexPath.row]
+        performSegue(withIdentifier: "SingleTask", sender: self)
+    }
+    
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return taskObjects[section].name
     }
     
+    var row = ""
+    var section = ""
     var taskObjects : [Tasks] = []
     var dbReference: DatabaseReference?
     var group = ""
@@ -98,6 +106,16 @@ class TaskTableViewController: UIViewController, UITableViewDataSource, UITableV
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier! {
+        case "SingleTask":
+            let destination = segue.destination as? TaskViewController
+            destination?.incoming(group: self.group, roomie: self.roomie, task: self.row, taskRoomie: self.section)
+        default:
+            NSLog("Unknown segue identifier -- " + segue.identifier!)
+        }
     }
     
 
